@@ -7,7 +7,8 @@ const indexReducer = createSlice({
         selectedVideo: {
             title: "",
             live: false
-        }
+        },
+        response: ""
     },
     reducers: {
         SelectSport: (state, action) => {
@@ -15,10 +16,13 @@ const indexReducer = createSlice({
         },
         SelectVideo: (state, action) => {
             state.selectedVideo = action.payload.selectedVideo
+        },
+        AddResponse: (state, action) => {
+            state.response = action.payload.response
         }
     }
 })
 
-export const { SelectSport, SelectVideo } = indexReducer.actions;
+export const { SelectSport, SelectVideo, AddResponse } = indexReducer.actions;
 
 export default indexReducer.reducer

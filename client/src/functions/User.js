@@ -44,3 +44,21 @@ export const RemoveUser = async (user) => {
         console.log(error);
     }
 }
+
+export const forgotPassword = async (user) => {
+    try {
+        const { data } = await api.ForgotPassword(user);
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const resetPassword = async (user) => {
+    try {
+        const { data } = await api.ResetPassword(user);
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+}

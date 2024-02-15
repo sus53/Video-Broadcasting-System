@@ -5,6 +5,7 @@ import { RegisterUser } from '../../functions/User';
 import { addUser } from '../../reducers/User';
 import './user.scss'
 import Logo from '../../assets/img/Logo.png'
+import { GoogleLogin } from '@react-oauth/google';
 
 function Register() {
 
@@ -29,6 +30,19 @@ function Register() {
         navigate('/');
     }
 
+    const googleSignUpHandler = async (credential) => {
+        const user = { ctoken: credential }
+        const res = await RegisterUser(user);
+        console.log(res)
+        if (res.message === "User Registered sucessfully") {
+            dispatch(addUser({ username: res.user.username, isAdmin: res.user.isAdmin }))
+            navigate('/')
+        } else {
+            console.log(res.message);
+        }
+    }
+
+
     return (
         <div className='user'>
             {isLogin ? "" : <div className='invalid'>"Invalid Email or Password"</div>}
@@ -45,21 +59,18 @@ function Register() {
                 <input type="number" placeholder='Mobile phone number (optional)' onChange={(e) => setUser({ ...user, phone: e.target.value })} />
                 <input type="password" placeholder='enter password' onChange={(e) => setUser({ ...user, password: e.target.value })} />
                 <input type="password" placeholder='enter confirm password' onChange={(e) => setUser({ ...user, cpassword: e.target.value })} />
-                <div className='keepSignedIn'>
-                    <div>
-                        <input type="checkbox" />
-                    </div>
-                    <div>
-                        Keep me signed in<br></br>
-                        <span>
-                            By checking this box you won't have to sign in as often on this device. For your security, we recommended only checking this box on your personal devices.
-                        </span>
-                    </div>
-                </div>
                 <Link>Terms & Conditions</Link>
                 <Link>Privary Policy</Link>
                 <button onClick={(e) => RegisterHandler(e)}>Create account</button>
-                <Link to={'/login'}>Or sign in</Link>
+                OR
+                <GoogleLogin
+                    onSuccess={res => {
+                        googleSignUpHandler(res.credential);
+                    }}
+                    size='medium'
+                    text="signup_with"
+                />
+                <Link className='secondary-btn' to={'/login'}><button>Already have an Account?</button></Link>
             </form>
             <p><span>"Welcome to the Fun Olympics 2023"</span></p>
         </div >

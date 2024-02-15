@@ -21,6 +21,9 @@ import { GetVideo } from './functions/Video';
 import { AddVideoReducer } from './reducers/Video';
 import { AddCommentReducer } from './reducers/Comment';
 import { GetComment } from './functions/Comment';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import ForgotPassword from './components/user/ForgotPassword';
+import ResetPassword from './components/user/ResetPassword';
 
 function App() {
 
@@ -82,23 +85,27 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <div className='body'>
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/live' element={<Live />} />
-            <Route path='/manageuser' element={<ManageUser />} />
-            <Route path='/video' element={<Video />} />
-            <Route path='/sport' element={<Sport />} />
-            <Route path='/managevideo' element={<ManageVideo />} />
-          </Routes>
-        </div>
-      </Router>
-    </div>
+    <GoogleOAuthProvider clientId="1045489467062-clci15u88ajefk8pk827189rc8gn3usf.apps.googleusercontent.com">
+      <div className="App">
+        <Router>
+          <Navbar />
+          <div className='body'>
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/live' element={<Live />} />
+              <Route path='/manageuser' element={<ManageUser />} />
+              <Route path='/video' element={<Video />} />
+              <Route path='/sport' element={<Sport />} />
+              <Route path='/managevideo' element={<ManageVideo />} />
+              <Route path='/forgotpassword' element={<ForgotPassword />} />
+              <Route path="/resetpassword/:id" element={<ResetPassword />} />
+            </Routes>
+          </div>
+        </Router>
+      </div>
+    </GoogleOAuthProvider>
   );
 }
 

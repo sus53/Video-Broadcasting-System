@@ -6,12 +6,13 @@ import WatchRouter from './routes/Watch.js'
 import CategoryRouter from './routes/Category.js';
 import VideoRouter from './routes/Video.js';
 import CommentRouter from './routes/Comment.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
-const mongodb = "mongodb+srv://Shreejan53:Splatqueen53@database.qsldw.mongodb.net/FunOlympics?retryWrites=true&w=majority";
 const port = "4000";
 
-mongoose.connect(mongodb).then(() => {
+mongoose.connect(process.env.mongodb).then(() => {
     console.log("app is listening in port " + port);
     app.listen(port);
 }).catch(err => console.log(err));

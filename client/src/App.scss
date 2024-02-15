@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif !important;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.App {
+  >.body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 5rem);
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  .d-block {
+    display: block;
+  }
+
+  .f-right {
+    float: right;
+  }
+
+  .right {
+    margin-left: 80%;
+  }
+
+  .fill-golden {
+    fill: rgb(255, 251, 0) !important;
+  }
+
+  .scale-m {
+    transform: scale(1.5);
+  }
+
+  .scale-s {
+    transform: scale(1.25);
+  }
+
+  .scale-l {
+    transform: scale(1.75);
+  }
+
+
+}

@@ -1,0 +1,166 @@
+.manageUser {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    align-items: start;
+    text-align: center;
+
+    >.table {
+        width: 100%;
+
+        >.row {
+            width: 100%;
+            display: flex;
+            padding: 0.6rem;
+
+            input {
+                width: 100% !important;
+                text-align: center;
+                font: inherit;
+                border: solid 1px black;
+                padding: 0.6rem;
+                margin: -2.3rem -0.7rem;
+            }
+
+            select {
+                width: 100% !important;
+                text-align: center;
+                font: inherit;
+                border: solid 1px black;
+                padding: 0.58rem;
+                margin: -2rem -0.7rem;
+            }
+
+            :nth-child(1) {
+                width: 5%;
+            }
+
+            :nth-child(2) {
+                width: 15%;
+            }
+
+            :nth-child(3) {
+                width: 15%;
+            }
+
+            :nth-child(4) {
+                width: 30%;
+            }
+
+            :nth-child(5) {
+                width: 10%;
+            }
+
+            :nth-child(6) {
+                width: 10%;
+
+            }
+
+            :nth-child(7) {
+                width: 20%;
+                display: flex;
+                justify-content: center;
+
+                >div {
+                    width: 40%;
+                    display: flex;
+                    justify-content: center;
+
+                    >.delete-confirmation {
+                        position: fixed;
+                        width: 100vw;
+                        height: 100vh;
+                        left: 0;
+                        top: 0;
+                        z-index: 3;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        backdrop-filter: blur(5px);
+
+                        >div {
+                            background-color: rgb(236, 236, 236);
+                            width: 400px;
+                            height: auto;
+                            padding: 1rem;
+                            border-radius: 10px;
+                            position: relative;
+
+
+                            >span {
+                                font-size: 20px;
+                            }
+
+                            >div {
+                                display: flex;
+                                justify-content: space-evenly;
+                                width: 100%;
+                                margin-top: 2rem;
+
+                                >button {
+                                    font-size: 18px;
+                                    background-color: rgb(224, 219, 219);
+                                }
+
+                                >button:hover {
+                                    background-color: rgb(201, 197, 197);
+                                }
+
+                                >button:active {
+                                    background-color: rgb(75, 74, 74);
+                                    color: white;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                button {
+
+                    transition: all 0.5s;
+                    margin-top: -7px;
+                    font-size: 16px;
+                    width: max-content;
+                    height: 30px;
+                    padding: 1.2rem 0.8rem;
+                    display: flex;
+                    align-items: center;
+                    background-color: inherit;
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(201, 197, 197);
+                    }
+
+                    &:active {
+                        background-color: rgb(75, 74, 74);
+                        color: white;
+                    }
+
+                    >.icon {
+                        width: 19px;
+                    }
+                }
+
+            }
+
+
+        }
+
+        >.head {
+            border-bottom: solid 2px gray;
+            font-weight: 600;
+            font-size: large;
+            margin-bottom: 0.5rem;
+
+            >div {
+                //margin-left: 8px;
+            }
+        }
+    }
+}

@@ -16,6 +16,8 @@ function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [notify, setNotify] = useState(response ? true : false)
+
+
     const LoginHandler = async (e) => {
         e.preventDefault();
         const res = await LoginUser(user);
@@ -29,6 +31,7 @@ function Login() {
         const user = { ctoken: cred }
         console.log(cred)
         const res = await LoginUser(user);
+        setIsLogin(res);
         if (res == false) return;
         dispatch(addUser({ username: res.username, isAdmin: res.isAdmin }));
         navigate('/');

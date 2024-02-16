@@ -12,8 +12,8 @@ function Sport() {
     const [isPic, setIsPic] = useState(false);
 
     const username = useSelector((State) => State.User.username)
-    const Video = useSelector((State) => State.Video.video.filter(item => item.category == sport));
-
+    const unFilteredVideo = useSelector((State) => State.Video);
+    const Video = unFilteredVideo && unFilteredVideo.video.filter(item => item.category == sport)
     const inputRef = useRef(null);
     const navigate = useNavigate();
 

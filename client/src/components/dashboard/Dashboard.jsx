@@ -9,6 +9,7 @@ import finalBasketball from "../../assets/video/Men's Basketball Final Highlight
 import finalFootball from "../../assets/video/Brazil vs Germany - Men's Football Final Rio 2016d.mp4"
 import { useNavigate } from 'react-router-dom';
 import { SelectVideo } from '../../reducers/Index';
+import { RemoveVideoReducer } from '../../reducers/Video';
 
 function Dashboard() {
     let i = 0;
@@ -23,9 +24,8 @@ function Dashboard() {
         e.preventDefault();
         const watch = { list: sport, username: username };
         const res = await AddWatch(watch);
-        if (res) dispatch(addWatch({ lists: [...Watch, sport] }));
+        if (res) dispatch(addWatch({ lists: [...Watch, watch.list] }));
     }
-
     const SportArray = [
         {
             title: "Lionel Messi 12 Most LEGENDARY Moments Ever in Football",
@@ -41,13 +41,14 @@ function Dashboard() {
 
     const navigate = useNavigate();
 
-    const VideoHandler = (e, title) => {
+    const VideoHandler = (e, videoTitle) => {
         e.preventDefault();
         if (!username) {
             navigate('/login')
             return;
         };
-        dispatch(SelectVideo({ selectedVideo: { title: title + ".mp4", live: true } }));
+        dispatch(RemoveVideoReducer())
+        dispatch(SelectVideo({ selectedVideo: { title: videoTitle + ".mp4", live: true } }));
         navigate('/video');
     }
 

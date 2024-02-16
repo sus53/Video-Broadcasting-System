@@ -13,8 +13,6 @@ const userSlice = createSlice({
             state.username = action.payload.username;
             state.email = action.payload.email;
             state.isAdmin = action.payload.isAdmin;
-            window.localStorage.setItem("user", action.payload.username);
-            window.localStorage.setItem("isAdmin", action.payload.isAdmin)
         },
         addUsers: (state, action) => {
             state.users = action.payload.users;
@@ -23,8 +21,6 @@ const userSlice = createSlice({
             state.username = "";
             state.email = "";
             state.users = [];
-            window.localStorage.removeItem("user");
-            window.localStorage.removeItem("isAdmin");
         }
     }
 

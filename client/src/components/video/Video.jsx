@@ -20,9 +20,8 @@ function Video() {
     const [isLike, setIsLike] = useState(true);
     const [isDisLike, setIsDisLike] = useState(true);
     const [isWatch, setIsWatch] = useState(false);
-    const [isLive, setIsLive] = useState(false);
 
-    const selectedVideo = useSelector(state => state.Video.selectedVideo)
+    const selectedVideo = useSelector(state => state.Index.selectedVideo)
 
 
     let title = selectedVideo.title;
@@ -36,7 +35,7 @@ function Video() {
     const dispatch = useDispatch();
     const username = useSelector(state => state.User.username);
     const Watch = useSelector(state => state.Watch.lists);
-    const Comment = useSelector(state => state.Comment.comment.filter(item => item.video == sport));
+    const Comment = useSelector(state => state.Comment && state.Comment.comment.filter(item => item.video == sport));
 
 
     title = sport.slice(0, -4);

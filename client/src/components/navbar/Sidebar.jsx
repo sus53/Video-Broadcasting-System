@@ -5,7 +5,7 @@ import { removeUser } from '../../reducers/User';
 import './navbar.scss';
 import { addWatch, removeWatch } from '../../reducers/Watch';
 import { GetWatch } from '../../functions/Watch';
-import { SelectVideo } from '../../reducers/Index';
+import { DeleteResponse, SelectVideo } from '../../reducers/Index';
 
 function Sidebar({ setIsMenu }) {
 
@@ -30,6 +30,7 @@ function Sidebar({ setIsMenu }) {
     const Logout = () => {
         dispatch(removeUser());
         dispatch(removeWatch());
+        dispatch(DeleteResponse())
         CloseMenu();
     }
 

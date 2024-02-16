@@ -25,9 +25,12 @@ function Register() {
 
         const res = await RegisterUser(user);
         console.log(res)
-        if (!res) return;
-        dispatch(addUser({ username: res.username, isAdmin: res.isAdmin }));
-        navigate('/');
+        console.log(user)
+        if (!res) return
+        else {
+            dispatch(addUser({ username: res.user.username, isAdmin: res.user.isAdmin }));
+            navigate('/');
+        }
     }
 
     const googleSignUpHandler = async (credential) => {
